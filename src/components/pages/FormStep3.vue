@@ -16,7 +16,7 @@
       <form>
         <div id="form-content" class="p-5">
           <div class="controll">
-            <p class="q-title has-text-info">-ご相談内容-</p>
+            <p class="q-title has-text-info">-{{ titleOfConsultation }}-</p>
             <textarea v-model="consultation" class="textarea"></textarea>
           </div>
         </div>
@@ -47,6 +47,9 @@ export default {
     },
   },
   computed: {
+    titleOfConsultation() {
+      return this.$store.getters.titleOfConsultation;
+    },
     consultation: {
       get() {
         return this.$store.getters.consultation;

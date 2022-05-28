@@ -51,11 +51,11 @@ export default {
   methods: {
     buttonActive() {
       this.isActive = false;
-      console.log('isActive!');
+      // console.log('isActive!');
     },
     buttonInactive() {
       this.isActive = true;
-      console.log('isInactive!');
+      // console.log('isInactive!');
     },
     confirmSave(e) {
       e.returnValue = '';
