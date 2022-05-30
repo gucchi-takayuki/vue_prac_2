@@ -16,15 +16,13 @@
       <form>
         <div id="form-content" class="p-5">
           <div class="controll">
-            <p class="q-title has-text-info">
-              現在、生命保険に加入されていますか？
-            </p>
+            <p class="q-title has-text-info">{{ titleOfLifeInsurance }}</p>
             <label class="radio">
               <input
                 v-model="lifeInsurance"
                 type="radio"
                 name="lifeInsurance"
-                value="yes"
+                value="はい"
               />はい
             </label>
             <label class="radio">
@@ -32,21 +30,19 @@
                 v-model="lifeInsurance"
                 type="radio"
                 name="lifeInsurance"
-                value="no"
+                value="いいえ"
               />いいえ
             </label>
           </div>
 
           <div class="controll">
-            <p class="q-title has-text-info">
-              現在入院中ですか？または、最近3ヶ月以内に医師の診察・検査の結果、入院・手術をすすめられたことありますか？
-            </p>
+            <p class="q-title has-text-info">{{ titleOfHospitalization }}</p>
             <label class="radio">
               <input
                 v-model="hospitalization"
                 type="radio"
                 name="hospitalization"
-                value="yes"
+                value="はい"
               />はい
             </label>
             <label class="radio">
@@ -54,21 +50,19 @@
                 v-model="hospitalization"
                 type="radio"
                 name="hospitalization"
-                value="no"
+                value="いいえ"
               />いいえ
             </label>
           </div>
 
           <div class="controll">
-            <p class="q-title has-text-info">
-              過去5年以内に、病気や怪我で、手術を受けたことまたは継続して7日以上の入院をしたことがありますか？
-            </p>
+            <p class="q-title has-text-info">{{ titleOfMedicalCare }}</p>
             <label class="radio">
               <input
                 v-model="medicalCare"
                 type="radio"
                 name="medicalCare"
-                value="yes"
+                value="はい"
               />はい
             </label>
             <label class="radio">
@@ -76,7 +70,7 @@
                 v-model="medicalCare"
                 type="radio"
                 name="medicalCare"
-                value="no"
+                value="いいえ"
               />いいえ
             </label>
           </div>
@@ -107,6 +101,16 @@ export default {
     },
   },
   computed: {
+    titleOfLifeInsurance() {
+      return this.$store.getters.titleOfLifeInsurance;
+    },
+    titleOfHospitalization() {
+      return this.$store.getters.titleOfHospitalization;
+    },
+    titleOfMedicalCare() {
+      return this.$store.getters.titleOfMedicalCare;
+    },
+
     lifeInsurance: {
       get() {
         return this.$store.getters.lifeInsurance;
